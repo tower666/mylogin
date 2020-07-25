@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'login/css/register.css' %}" rel="stylesheet">
+    <title>注册页面</title>
+</head>
+
+<body>
+<br>
+<br>
+<h2 style="text-align: center"><b>欢 迎 登 陆</b></h2>
+<p style="text-align: right"><a href="/">返回上一页</a>&nbsp;&nbsp;</p>
+<hr for="p">
+
+<div class="container">
+    <div class="col">
+    <form class="form-register" action="/login/login/" method="post">
+
+        {% csrf_token %}
+
+
+
+            <div class="form-group">
+            {% for field in login_form %}
+                {{ field.label_tag }}
+                {{ field }}
+            {% endfor %}
+                </div>
+
+            <div>
+            <button type="submit">登陆</button>
+            </div>
+
+    </form>
+
+    <div class="message">
+    {% if login_form.form_captcha.errors %}
+     {{ login_form.form_captcha.errors }}
+      {% elif message %}
+      {{ message }}
+      {% endif %}
+    </div>
+
+
+</div>
+<br>
+<br>
+<br>
+<hr>
+<p style="text-align: right"> Copyright &copy; 2020 Tower &nbsp; &nbsp;</p>
+
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

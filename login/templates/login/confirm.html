@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="10;url={% url 'login:login' %}">
+    <title>请确认</title>
+
+</head>
+<body>
+<h1>{{ message }}</h1>
+{#       就是register视图里的 message='请前往邮箱确认'  这个html又绑定一个函数。confirm#}
+<p>10秒后跳转到登陆页面</p>
+</body>
+</html>
